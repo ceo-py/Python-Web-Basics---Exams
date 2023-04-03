@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <title>MyPlantApp</title>
+</head>
+
+<body>
+<div id="box">
+
+    <header>
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'index' %}">MyPlants</a></h1>
+        <nav>
+            <a href="{% url 'catalogue' %}">Catalogue</a>
+            <a href="{% url 'plant_create' %}">Create Plant</a>
+            <a href="{% url 'profile_details' %}">Profile</a>
+        </nav>
+    </header>
+
+    <!-- delete plant form -->
+    <section id="delete-page" class="auth">
+        <form id="delete" method="post" action="{% url 'plant_delete' pk=plant.pk %}">
+            <div class="container">
+                <h1>Delete Plant</h1>
+
+                {{ form }}
+
+                <input class="btn submit" type="submit" value="Delete Plant">
+                {% csrf_token %}
+
+            </div>
+        </form>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        &copy;SoftUni Team 2022. All rights reserved.
+    </footer>
+
+</div>
+</body>
+</html>

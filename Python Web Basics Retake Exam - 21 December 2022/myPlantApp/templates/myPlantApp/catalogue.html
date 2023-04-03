@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <title>MyPlantApp</title>
+</head>
+
+<body>
+<div id="box">
+    <header>
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'index' %}">MyPlants</a></h1>
+        <nav>
+            <a href="{% url 'catalogue' %}">Catalogue</a>
+            <a href="{% url 'plant_create' %}">Create Plant</a>
+            <a href="{% url 'profile_details' %}">Profile</a>
+        </nav>
+    </header>
+
+    <!-- Display paragraph: If there are no plants yet-->
+    {% if plants_available == 0 %}
+        <p class="no-articles">No plants yet</p>
+    {% else %}
+        <!-- Display div "plant" with information about every plant (if any)-->
+        <section id="catalogue">
+        {% for plant in plants %}
+                <div class="plant-card">
+                    <div class="image-wrap">
+                        <!-- plant image -->
+                        <img src="{{ plant.image_url }}"
+                             alt="{{ plant.name }}">
+                    </div>
+                    <!-- plant name -->
+                    <h3>{{ plant.name }}</h3>
+                    <!-- plant description -->
+                    <h1>{{ plant.description }}</h1>
+                    <div class="details-buttons">
+                        <!-- plant details button -->
+                        <a href="{% url 'plant_details' pk=plant.pk %}" class="details-btn">Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    <!-- footer -->
+    <footer>
+        &copy;SoftUni Team 2022. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>
