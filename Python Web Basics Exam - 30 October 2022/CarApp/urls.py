@@ -14,16 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from CarApp import views
-from base.urls import include
+from django.urls import path, include
 
-'''
-http://localhost:8000/car/create/ - car create page
-http://localhost:8000/car/<car-id>/details/ - car details page
-http://localhost:8000/car/<car-id>/edit/ - car edit page
-http://localhost:8000/car/<car-id>/delete/ - car delete page
-'''
+from CarApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,9 +29,9 @@ urlpatterns = [
         path('delete/', views.profile_delete, name='profile_delete'),
     ])),
     path('car/', include([
-        path('/create/', views.car_create, name='car_create'),
-        path('<int:pk>details/', views.car_details, name='car_details'),
-        path('<int:pk>edit/', views.car_edit, name='car_edit'),
-        path('<int:pk>delete/', views.car_delete, name='car_delete'),
-    ]))
+        path('create/', views.car_create, name='car_create'),
+        path('<int:pk>/details/', views.car_details, name='car_details'),
+        path('<int:pk>/edit/', views.car_edit, name='car_edit'),
+        path('<int:pk>/delete/', views.car_delete, name='car_delete'),
+    ])),
 ]

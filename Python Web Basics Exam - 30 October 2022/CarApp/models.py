@@ -3,14 +3,14 @@ from django.core.exceptions import ValidationError
 from django.db import models
 
 
-def validate_username_min_chars(value):
-    if len(value) <= 1:
-        raise ValidationError('The username must be a minimum of 2 chars')
+def validate_min_characters_in_string(value):
+    if not len(value) >= 2:
+        raise ValidationError("The username must be a minimum of 2 chars")
 
 
-def validate_correct_car_year(value):
+def validate_year_between_1980_2049(value):
     if not 1980 <= int(value) <= 2049:
-        raise ValidationError('Year must be between 1980 and 2049')
+        raise ValidationError("Year must be between 1980 and 2049")
 
 
 class ProfileModel(models.Model):
@@ -24,9 +24,7 @@ class ProfileModel(models.Model):
         blank=False,
         null=False,
         max_length=USERNAME_MAX_LEN,
-        validators=(
-            validate_username_min_chars,
-        ),
+        validators=(validate_min_characters_in_string,),
     )
 
     email = models.EmailField(
@@ -46,25 +44,21 @@ class ProfileModel(models.Model):
         max_length=PASSWORD_MAX_LEN,
     )
 
-    first_name = models.CharField(
+    first_Name = models.CharField(
         blank=True,
         null=True,
         max_length=NAME_MAX_LEN,
-        verbose_name='First Name',
-
     )
 
-    last_name = models.CharField(
+    last_Name = models.CharField(
         blank=True,
         null=True,
         max_length=NAME_MAX_LEN,
-        verbose_name='Last Name',
     )
 
-    profile_picture = models.URLField(
+    profile_Picture = models.URLField(
         blank=True,
         null=True,
-        verbose_name='Profile Picture',
     )
 
 
@@ -72,6 +66,7 @@ class CarModel(models.Model):
     TYPE_MAX_LEN = 10
     MODEL_MAX_LEN = 20
     MODEL_MIN_LEN = 2
+    PRICE_MIN_VALUE = 1
 
     SPORT_CAR = "Sports Car"
     PICKUP = "Pickup"
@@ -98,24 +93,23 @@ class CarModel(models.Model):
         blank=False,
         null=False,
         max_length=MODEL_MAX_LEN,
-        validators=(validators.MinLengthValidator(MODEL_MIN_LEN),),
+        validators=(validators.MinLengthValidator(MODEL_MIN_LEN),)
+
     )
 
     year = models.IntegerField(
         blank=False,
         null=False,
-        validators=(
-            validate_correct_car_year,),
+        validators=(validate_year_between_1980_2049,),
     )
 
-    image_url = models.URLField(
+    image_URL = models.URLField(
         blank=False,
         null=False,
-        verbose_name='Image URL',
     )
 
     price = models.FloatField(
         blank=False,
         null=False,
-        validators=(validators.MinValueValidator(1),),
+        validators=(validators.MinValueValidator(PRICE_MIN_VALUE),),
     )

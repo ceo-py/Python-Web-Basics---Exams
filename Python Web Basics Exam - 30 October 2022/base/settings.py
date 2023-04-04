@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-h@dia0=q%yc(^3wy)wmm-p_s7l3a-yxfpxa41^yd8^)5!l*#gh"
+SECRET_KEY = "django-insecure-y*d*6o6)$6+gcnl+7nzl$%96*gc6$z(e-bgxqx27ccms-)!yfo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,7 +81,7 @@ DATABASES = {
         "NAME": "car_db",
         "USER": "myusername",
         "PASSWORD": "mypassword",
-        "HOST": "192.168.0.105",
+        "HOST": "192.168.0.109",
         "PORT": "5432",
     }
 }
@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+
 STATICFILES_DIRS = [BASE_DIR / 'CarApp/static']
 
 # Default primary key field type

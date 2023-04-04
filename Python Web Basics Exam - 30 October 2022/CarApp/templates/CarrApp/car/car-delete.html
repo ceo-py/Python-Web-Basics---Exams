@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
     <section id="delete-page" class="auth">
-        <form id="delete"  method="post" action="{% url 'car_delete' pk=car.pk %}">
+        <form id="delete" method="post" action="{% url 'car_delete' pk=car.pk %}">
             <div class="container">
 
                 <h1>Delete Car</h1>
@@ -14,5 +13,4 @@
             </div>
         </form>
     </section>
-
 {% endblock %}

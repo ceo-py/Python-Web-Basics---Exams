@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-
 {% block content %}
+    <!-- details section -->
     <section id="car-details">
         <h1>Car Details</h1>
         <div class="info-section">
             <div class="car-header">
                 <!-- car image -->
                 <img class="car-img"
-                     src="{{ car.image_url }}"
-                     alt='car image'/>
+                     src="{{ car.image_URL }}"
+                     alt='{{ car.model }}'/>
                 <!-- type and model -->
                 <h1>{{ car.type }}</h1>
                 <!-- car model -->
@@ -27,4 +27,5 @@
             </div>
         </div>
     </section>
+
 {% endblock %}
