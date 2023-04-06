@@ -16,6 +16,9 @@ def get_names(item):
 
 
 def create_profile(request):
+    if get_profile(ProfileModel):
+        return redirect('index')
+
     return view_form(
         request=request, base_form=ProfileCreateForm, redirect_url="index", base_url="auth_app/create-profile.html"
     )
