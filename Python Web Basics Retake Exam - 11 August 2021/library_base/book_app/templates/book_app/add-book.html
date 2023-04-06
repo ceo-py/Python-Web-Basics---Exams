@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+        <section id="create-page" class="create">
+            <form id="create-form" action="{% url 'book_add' %}" method="post">
+                <fieldset>
+                    <legend>Add New Book</legend>
+
+                    {{ form }}
+
+                    <input class="button submit" type="submit" value="Add Book">
+                    {% csrf_token %}
+                </fieldset>
+            </form>
+        </section>
+{% endblock %}

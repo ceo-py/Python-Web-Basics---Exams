@@ -12,3 +12,4 @@
 | ------------- |
 | [Python Web Basics Retake Exam - 21 December 2022](https://www.youtube.com/watch?v=PD-7BYVpnEE&list=PLtrqz5Y_ckigDlqXGlbvqvr2tQxOo82Q7&index=1&a)  | 
 | [Python Web Basics Exam - 30 October 2022](https://www.youtube.com/watch?v=hZHSUM1W_9s&list=PLtrqz5Y_ckigDlqXGlbvqvr2tQxOo82Q7&index=5&ab_channel=AKA)  | 
+| [Python Web Basics Retake Exam - 19 April 2022](https://www.youtube.com/watch?v=-dulLVQnwdE&list=PLtrqz5Y_ckigDlqXGlbvqvr2tQxOo82Q7&index=6&ab_channel=AKA)  | 
