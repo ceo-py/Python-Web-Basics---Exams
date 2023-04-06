@@ -18,8 +18,8 @@ def index(request):
     context = {"profile": get_profile()}
     if context["profile"]:
         return index_with_profile(request, context)
-    else:
-        return index_no_profile(request, context)
+
+    return index_no_profile(request, context)
 
 
 def index_with_profile(request, context):
