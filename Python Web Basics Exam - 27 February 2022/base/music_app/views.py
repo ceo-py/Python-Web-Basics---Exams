@@ -7,7 +7,7 @@ from base.music_app.models import AlbumModel
 
 
 def get_albums():
-    return sorted(AlbumModel.objects.all(), key=lambda x: x.pk)
+    return AlbumModel.objects.all().order_by('pk')
 
 
 def find_album(pk):

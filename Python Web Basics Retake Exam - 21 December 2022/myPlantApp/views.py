@@ -13,7 +13,7 @@ def get_profile():
 
 
 def get_plants():
-    return PlantModel.objects.all()
+    return PlantModel.objects.all().order_by('pk')
 
 
 def delete_all_plants(plants, request):

@@ -1,5 +1,5 @@
 def get_all_items(model_data=''):
-    return sorted(model_data.objects.all(), key=lambda x: x.pk)
+    return model_data.objects.all().order_by('pk')
 
 
 def find_item(collection='', pk=''):

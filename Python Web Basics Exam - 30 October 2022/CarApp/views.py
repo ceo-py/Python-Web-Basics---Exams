@@ -13,7 +13,7 @@ def get_profile():
 
 
 def get_cars():
-    return CarModel.objects.all()
+    return CarModel.objects.all().order_by('pk')
 
 
 def create_context(profile):
