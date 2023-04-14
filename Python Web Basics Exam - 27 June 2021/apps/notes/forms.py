@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.note.models import NoteModel
+from apps.notes.models import NoteModel
 
 
 class NoteModelBaseForm(forms.ModelForm):
@@ -20,4 +20,4 @@ class NoteDeleteForm(NoteModelBaseForm):
 
     def __set_disabled_fields(self):
         for field in self.fields.values():
-            field.widget.attrs['disabled'] = 'disabled'
+            field.widget.attrs['disabled'] = True

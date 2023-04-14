@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <div class="body">
         <!--headings-->
         <h1>Your Profile</h1>
@@ -16,8 +17,7 @@
                 <p>All notes: {{ notes }}</p>
             </div>
             <div class="right">
-                    <a class="button delete" href="{% url 'delete_profile' %}">Delete</a>
-                    {% csrf_token %}
+                <a class="button delete" href="{% url 'user_profile_delete' %}">Delete</a>
             </div>
         </div>
         <!--end profile details container-->

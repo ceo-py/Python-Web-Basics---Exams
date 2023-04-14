@@ -1,23 +1,21 @@
 from django.shortcuts import render, redirect
 
-from apps.autht.models import ProfileModel
 from apps.functionality.items import get_all_items
 from apps.functionality.profile import get_profile
-from apps.note.models import NoteModel
+from apps.notes.models import NoteModel
+from apps.user.models import ProfileModel
 
 
 # Create your views here.
 
 
-def profile(request):
-
+def user_profile(request):
     context = {'profile': get_profile(ProfileModel),
                'notes': len(get_all_items(NoteModel))}
-    return render(request, 'autht/profile.html', context)
+    return render(request, 'user/profile.html', context)
 
 
-def delete_profile(request):
+def user_profile_delete(request):
     ProfileModel.objects.all().delete()
     NoteModel.objects.all().delete()
-
     return redirect('index')

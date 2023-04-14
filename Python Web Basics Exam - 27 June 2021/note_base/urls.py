@@ -16,12 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.autht.views import profile, delete_profile
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('apps.common.urls')),
-    path('', include('apps.note.urls')),
-    path("profile/", include('apps.autht.urls')),
-    # path("profile/delete", delete_profile, name='delete_profile')
+    path('', include('apps.notes.urls')),
+    path('', include('apps.user.urls')),
 ]

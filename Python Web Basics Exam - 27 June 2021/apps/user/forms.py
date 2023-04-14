@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.autht.models import ProfileModel
+from apps.user.models import ProfileModel
 
 
 class ProfileModelBaseForm(forms.ModelForm):

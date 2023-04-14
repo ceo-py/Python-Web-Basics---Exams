@@ -1,10 +1,9 @@
 {% load static %}
-
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
         <title>Notes</title>
     </head>
 
@@ -13,19 +12,24 @@
         <header>
             <nav>
                 <ul>
-                    <li class="img"><img src="{% static 'images/note.png' %}" /></li>
-                    <li><a href="{%  url 'index' %}">Notes</a></li>
-                    {% if profile %}
-                        <li class="right">
-                            <a href="{% url 'note_create' %}">Add Note</a>
-                            <a href="{% url 'profile' %}">Profile</a>
-                        </li>
-                    {% endif %}
+                    <li class="img"><img src="{% static 'images/note.png' %}" alt="note pic"/></li>
+                    <li><a href="{% url 'index' %}">Notes</a></li>
+                    <li class="right">
+                        {% if profile %}
+                            {% if not add %}
+                                <a href="{% url 'note_add' %}">Add Note</a>
+                            {% endif %}
+                            <a href="{% url 'user_profile' %}">Profile</a>
+                        {% endif %}
+                    </li>
                 </ul>
             </nav>
         </header>
+        <!--end navigation bar-->
+
         {% block content %}
         {% endblock %}
+
         <footer>
             <div>Python Web Basics Exam @SoftUni</div>
         </footer>
