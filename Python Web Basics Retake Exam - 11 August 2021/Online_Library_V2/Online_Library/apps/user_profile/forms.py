@@ -16,6 +16,9 @@ class ProfileModelBaseForm(forms.ModelForm):
             else:
                 field.widget.attrs['placeholder'] = field.label
 
+            for field in self.fields.values():
+                field.label_suffix = ''
+
 
 class ProfileDeleteForm(ProfileModelBaseForm):
     def __init__(self, *args, **kwargs):

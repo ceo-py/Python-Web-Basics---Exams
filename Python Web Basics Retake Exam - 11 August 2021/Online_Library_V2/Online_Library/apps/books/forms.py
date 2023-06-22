@@ -15,3 +15,6 @@ class BookModelBaseForm(forms.ModelForm):
                 field.widget.attrs['placeholder'] = 'Fiction, Novel, Crime..'
             else:
                 field.widget.attrs['placeholder'] = field.label
+
+        for field in self.fields.values():
+            field.label_suffix = ''
