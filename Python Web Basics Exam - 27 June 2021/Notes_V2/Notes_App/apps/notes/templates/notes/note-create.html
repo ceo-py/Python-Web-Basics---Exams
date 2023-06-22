@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <div class="body">
+            <!--headings-->
+            <h1>Add Note</h1>
+            <!--headings-->
+
+            <!--note data form-->
+            <div class="form">
+                <form method="post" action="{% url 'notes_add' %}">
+                    {{ form }}
+
+                    <input type="submit" value="Publish" />
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!--end note data form-->
+        </div>
+
+{% endblock %}

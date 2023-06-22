@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <div class="body">
+            <!--headings-->
+            <h1>Enter Your Data</h1>
+            <!--end headings-->
+
+            <!--profile data form-->
+            <div class="form">
+                <form method="post" action="{% url 'index' %}">
+                    {{ form }}
+
+                    <input type="submit" value="SUBMIT" />
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!--end profile data form-->
+        </div>
+
+{% endblock %}
